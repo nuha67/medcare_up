@@ -36,7 +36,7 @@ export default function ArabellaChatPage() {
 
     try {
       const token = localStorage.getItem("medcare_token");
-      const res = await axios.post("http://34.229.165.55:8000/chat", 
+      const res = await axios.post("https://34-229-165-55.nip.io/chat", 
         { message: userMessage }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

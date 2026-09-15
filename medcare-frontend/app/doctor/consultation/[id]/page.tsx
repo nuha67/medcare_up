@@ -60,7 +60,7 @@ export default function ConsultationActionPage() {
   // 1. Fetch Patient Info (From Dashboard Queue due to Clinical Blindness)
   const fetchConsultationData = async (token: string) => {
     try {
-      const response = await axios.get("http://34.229.165.55:8000/doctors/me/dashboard", {
+      const response = await axios.get("https://34-229-165-55.nip.io/doctors/me/dashboard", {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -87,7 +87,7 @@ export default function ConsultationActionPage() {
 
   const fetchLabCatalog = async (token: string) => {
     try {
-      const response = await axios.get("http://34.229.165.55:8000/doctors/lab-test-catalog", {
+      const response = await axios.get("https://34-229-165-55.nip.io/doctors/lab-test-catalog", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLabCatalog(response.data);
@@ -106,7 +106,7 @@ export default function ConsultationActionPage() {
     setArriving(true);
     try {
       const token = localStorage.getItem("medcare_token");
-      await axios.post(`http://34.229.165.55:8000/appointments/${appointmentId}/arrive`, {}, {
+      await axios.post(`https://34-229-165-55.nip.io/appointments/${appointmentId}/arrive`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setIsArrived(true);
@@ -157,7 +157,7 @@ export default function ConsultationActionPage() {
 
     try {
       const token = localStorage.getItem("medcare_token");
-      await axios.post(`http://34.229.165.55:8000/appointments/${appointmentId}/prescribe`, {
+      await axios.post(`https://34-229-165-55.nip.io/appointments/${appointmentId}/prescribe`, {
         medicines: medicines,
         doctor_note: doctorNote,
         override_warning: override
@@ -188,7 +188,7 @@ export default function ConsultationActionPage() {
 
     try {
       const token = localStorage.getItem("medcare_token");
-      await axios.post(`http://34.229.165.55:8000/appointments/${appointmentId}/send-to-lab`, {
+      await axios.post(`https://34-229-165-55.nip.io/appointments/${appointmentId}/send-to-lab`, {
         test_name: selectedLabTest
       }, {
         headers: { Authorization: `Bearer ${token}` }
@@ -213,7 +213,7 @@ export default function ConsultationActionPage() {
     setCompleting(true);
     try {
       const token = localStorage.getItem("medcare_token");
-      await axios.put(`http://34.229.165.55:8000/appointments/${appointmentId}/complete`, {}, {
+      await axios.put(`https://34-229-165-55.nip.io/appointments/${appointmentId}/complete`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
